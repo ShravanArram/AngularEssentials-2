@@ -1,0 +1,32 @@
+<header-app></header-app>
+<main>
+    <ul id="users">
+        @for (user of users; track user.id) {
+            <li>
+                <app-user [selected]="user.id===selecteduserId" (select)="onSelectUser($event)" [user]="user" />
+            </li>
+         } 
+        <!-- <li>  *ngFor="let user of users"
+            <app-user (select)="onSelectUser($event)" [user]="users[0]" />
+        </li>
+        <li> -->
+            <!-- <app-user (select)="onSelectUser($event)" [user]="users[1]" />
+        </li>
+        <li>
+            <app-user (select)="onSelectUser($event)" [user]="users[2]" />
+        </li>
+        <li>
+            <app-user (select)="onSelectUser($event)" [user]="users[3]" />
+        </li>
+        <li>
+             <app-user (select)="onSelectUser($event)" [id] = "users[4].id" [avatar]="users[4].avatar" [name] ="users[4].name" /> -->
+        <!-- </li> -->
+    </ul>
+    @if(selecteduserName)
+    {
+        <app-tasks [userId] = "selecteduserId" [name] ="selecteduserName"/>
+    }
+@else{
+    <p>Select a user to see the tasks</p>
+}
+</main>
